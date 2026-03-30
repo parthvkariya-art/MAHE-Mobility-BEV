@@ -1,12 +1,21 @@
-![Scene 0](nuscenes_scene_0.gif)
-
-
 # Multi-View BEV Perception
 
 ## What the Model Does
 This repository contains a deep learning model that takes six synchronized camera feeds from a vehicle (front, back, and four corners) and projects them into a single, top-down Bird's-Eye View (BEV) map. 
 
 Instead of relying on LiDAR or depth sensors, the network learns to estimate 3D space directly from 2D images. The final output is a 200x200 binary grid that classifies the area around the car into two categories: drivable space and obstacles.
+
+# Ground Truth Generation (LiDAR to BEV)
+
+To train the model to predict BEV maps from cameras, we must first establish accurate target labels. We generate this ground truth using the vehicle's LiDAR data and the nuScenes dataset API.
+
+![Scene 0](nuscenes_scene_0.gif)
+
+* LiDAR Projection: It extracts the 3D point cloud from the top LiDAR sensor and filters the points to a 100m x 100m bounding box centered on the ego vehicle (50 meters in all directions).
+
+* Occupancy Grid Creation: The filtered 3D points are flattened and mapped onto a high-resolution 1000x1000 2D binary matrix at a resolution of 0.1 meters per pixel. This matrix serves as the definitive top-down map of physical obstacles and occupied space.
+
+* Camera Calibration Extraction: The script iterates through the six camera feeds to extract camera intrinsic matrices, sensor rotations, sensor translations, and the vehicle's ego pose. This spatial metadata is essential to properly correlate the 2D camera pixels with the 3D physical coordinates represented in the LiDAR occupancy grid.
 
 ## How We Trained It
 We built a custom neural network architecture and trained it on a highly constrained dataset of 404 multi-view frames. 
