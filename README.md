@@ -48,3 +48,10 @@ Getting a 21.6% IoU on a dataset of only 404 frames proves that the network succ
 note:-
 all the graphs and the inference can be obtained by the .ipynb file itself 
 
+
+
+THE LINK FOR THE DATASET:-
+https://drive.google.com/drive/folders/1m5XFVvy8lJi723Azd9BWxLHL051jHZH7?usp=sharing
+
+THE LINK FOR THE BEST MODEL:-
+https://drive.google.com/file/d/1GpTjvbweM8gln-qtOpDeDGkXZ6NdYJcj/view?usp=sharing
