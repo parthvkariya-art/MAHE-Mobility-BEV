@@ -1,4 +1,3 @@
-### Scene 0
 ![Scene 0](nuscenes_scene_0.gif)
 
 
@@ -32,16 +31,20 @@ By switching to our custom loss function and moving the training to a T4 GPU, we
 Getting a 21.6% IoU on a dataset of only 404 frames proves that the network successfully learned how to cross-reference multiple cameras to map physical boundaries, rather than just memorizing the training data.
 
 ## Visualizations
-*(Note: Upload your generated graphs and inference images to the repository and link them below)*
 
 **1. Inference Output (6 Cameras to BEV Projection)**
-![Inference Graphic](presentation_graphic.png)
+
+<img width="1589" height="675" alt="inference" src="https://github.com/user-attachments/assets/650cf0e9-fd01-4ab5-892d-953d70b96edd" />
+
+
+
 
 **2. Training Metrics (Loss and IoU)**
-![Training Metrics](training_metrics_graph.png)
 
-## How to Run Inference
-To test the model on a synchronized frame, place the `bev_latest.pth` weights in the `checkpoints/` directory and run:
+<img width="1389" height="590" alt="graphs" src="https://github.com/user-attachments/assets/b41bcab6-6db6-4a76-9194-355c1712fea1" />
 
-```bash
-python inference.py
+
+
+note:-
+all the graphs and the inference can be obtained by the .ipynb file itself 
+
