@@ -64,3 +64,33 @@ https://drive.google.com/drive/folders/1m5XFVvy8lJi723Azd9BWxLHL051jHZH7?usp=sha
 
 THE LINK FOR THE BEST MODEL:-
 https://drive.google.com/file/d/1GpTjvbweM8gln-qtOpDeDGkXZ6NdYJcj/view?usp=sharing
+
+
+## Reproducing the Training in Google Colab
+
+If you want to train the model from scratch or run the full pipeline using the provided Google Colab notebook (`training_pipeline.ipynb`), you must structure your Google Drive correctly so the script can find the images and save the model weights.
+
+### Google Drive Directory Structure
+First, download the full `master_dataset` from the provided link. Then, create a folder named `mahe_mobility` in the root of your Google Drive and upload the dataset there. 
+
+Your Google Drive must look exactly like this:
+
+```text
+My Drive/
+└── mahe_mobility/
+    └── master_dataset/
+        ├── CAM_FRONT/
+        ├── CAM_FRONT_LEFT/
+        ├── CAM_FRONT_RIGHT/
+        ├── CAM_BACK/
+        ├── CAM_BACK_LEFT/
+        └── CAM_BACK_RIGHT/
+
+# These paths are defined at the top of the notebook
+DATASET_PATH = "/content/drive/MyDrive/mahe_mobility/master_dataset"
+CHECKPOINT_DIR = "/content/drive/MyDrive/mahe_mobility/models"
+
+bev_latest.pth (The most recent epoch weights)
+bev_best.pth (The weights with the highest validation accuracy)
+training_log.csv (The epoch-by-epoch loss and IoU metrics)
+presentation_graphic.png (The final spatial projection output)
