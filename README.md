@@ -21,6 +21,7 @@ We built a custom neural network architecture and trained it on a highly constra
 
 **1. The Architecture**
 * **Feature Extraction:** We used a pre-trained ResNet-34 as the backbone. We froze the early layers to keep its basic edge-detection abilities and only trained the deeper layers to understand our specific environment.
+
 * **Spatial Projection:** We used an adaptive pooling method to collapse the vertical data from the camera images and stretch it across a flat horizontal plane.
 
 **2. The Custom Loss Function**
