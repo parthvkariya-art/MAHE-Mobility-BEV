@@ -21,7 +21,7 @@ To train the model to predict BEV maps from cameras, we must first establish acc
 We built a custom neural network architecture and trained it on a highly constrained dataset of 404 multi-view frames. 
 
 **1. The Architecture**
-* **Feature Extraction:** We used a pre-trained ResNet-18 as the backbone. We froze the early layers to keep its basic edge-detection abilities and only trained the deeper layers to understand our specific environment.
+* **Feature Extraction:** We used a pre-trained ResNet-34 as the backbone. We froze the early layers to keep its basic edge-detection abilities and only trained the deeper layers to understand our specific environment.
 * **Spatial Projection:** We used an adaptive pooling method to collapse the vertical data from the camera images and stretch it across a flat horizontal plane.
 
 **2. The Custom Loss Function**
@@ -33,24 +33,26 @@ Our biggest hurdle was the "Empty Space Problem." Because 95% of a BEV map is ju
 ## Model Metrics
 By switching to our custom loss function and moving the training to a T4 GPU, we saw a massive jump in the model's ability to understand geometry. 
 
-* **Best Validation Loss:** 0.3803
-* **Peak Intersection over Union (IoU):** ~21.6%
+* **Best Validation Loss:** 0.4126
+* **Peak Intersection over Union (IoU):** ~24.09%
 * **Performance Leap:** We achieved a >100% relative improvement in structural accuracy compared to our initial baseline, which had flatlined at 9% IoU. 
 
-Getting a 21.6% IoU on a dataset of only 404 frames proves that the network successfully learned how to cross-reference multiple cameras to map physical boundaries, rather than just memorizing the training data.
+Getting a 24.09% IoU on a dataset of only 404 frames proves that the network successfully learned how to cross-reference multiple cameras to map physical boundaries, rather than just memorizing the training data.
 
 ## Visualizations
 
 **1. Inference Output (6 Cameras to BEV Projection)**
 
-<img width="1589" height="675" alt="inference" src="https://github.com/user-attachments/assets/650cf0e9-fd01-4ab5-892d-953d70b96edd" />
+<img width="1589" height="675" alt="presentation_graphic" src="https://github.com/user-attachments/assets/370d5d89-265d-4d7d-b4d5-bdbdfa68beaa" />
+
 
 
 
 
 **2. Training Metrics (Loss and IoU)**
 
-<img width="1389" height="590" alt="graphs" src="https://github.com/user-attachments/assets/b41bcab6-6db6-4a76-9194-355c1712fea1" />
+<img width="1390" height="590" alt="training_metrics_graph" src="https://github.com/user-attachments/assets/6943c6cd-398f-4cec-9ee8-8407a6690043" />
+
 
 
 
@@ -63,12 +65,12 @@ THE LINK FOR THE DATASET:-
 https://drive.google.com/drive/folders/1m5XFVvy8lJi723Azd9BWxLHL051jHZH7?usp=sharing
 
 THE LINK FOR THE BEST MODEL:-
-https://drive.google.com/file/d/1GpTjvbweM8gln-qtOpDeDGkXZ6NdYJcj/view?usp=sharing
+https://drive.google.com/file/d/1ypmFQu3jE3gfjR-oU3ucs4MRlsYOW7ku/view?usp=drive_link
 
 
 ## Reproducing the Training in Google Colab
 
-If you want to train the model from scratch or run the full pipeline using the provided Google Colab notebook (`training_pipeline.ipynb`), you must structure your Google Drive correctly so the script can find the images and save the model weights.
+If you want to train the model from scratch or run the full pipeline using the provided Google Colab notebook (`mahe_mobility.ipynb`), you must structure your Google Drive correctly so the script can find the images and save the model weights.
 
 ### Google Drive Directory Structure
 First, download the full `master_dataset` from the provided link. Then, create a folder named `mahe_mobility` in the root of your Google Drive and upload the dataset there. 
