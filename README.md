@@ -1,4 +1,3 @@
-<img width="1589" height="675" alt="inference" src="https://github.com/user-attachments/assets/9c1648fe-0eba-4c80-9317-743f018a00ca" /># Multi-View BEV Perception
 
 ## What the Model Does
 This repository contains a deep learning model that takes six synchronized camera feeds from a vehicle (front, back, and four corners) and projects them into a single, top-down Bird's-Eye View (BEV) map. 
