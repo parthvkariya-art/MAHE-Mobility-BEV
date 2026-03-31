@@ -89,6 +89,10 @@ https://drive.google.com/file/d/1GpTjvbweM8gln-qtOpDeDGkXZ6NdYJcj/view?usp=shari
 ## Reproducing the Training in Google Colab
 
 If you want to train the model from scratch or run the full pipeline using the provided Google Colab notebook (`mahe_mobility.ipynb`), you must structure your Google Drive correctly so the script can find the images and save the model weights.
+If you want to try a larger parameter model please change the line :
+backbone = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
+TO 
+backbone = models.resnet34(weights=models.ResNet34_Weights.DEFAULT)
 
 ### Google Drive Directory Structure
 First, download the full `master_dataset` from the provided link. Then, create a folder named `mahe_mobility` in the root of your Google Drive and upload the dataset there. 
